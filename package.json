@@ -1,0 +1,16 @@
+{
+  "name": "polymiddleware",
+  "version": "0.0.1",
+  "author": "polycorn",
+  "description": "",
+  "contributors": [],
+  "main": "./index.js",
+  "keywords": [],
+  "dependencies": {},
+  "noAnalyze": true,
+  "engines": {
+    "node": ">=0.8"
+  },  
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
