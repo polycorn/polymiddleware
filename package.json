@@ -1,16 +1,36 @@
 {
-  "name": "polymiddleware",
-  "version": "0.0.1",
-  "author": "polycorn",
-  "description": "",
-  "contributors": [],
-  "main": "./index.js",
-  "keywords": [],
-  "dependencies": {},
-  "noAnalyze": true,
-  "engines": {
-    "node": ">=0.8"
-  },  
-  "devDependencies": {},
-  "optionalDependencies": {}
+	"name": "polymiddleware",
+	"version": "0.0.1",
+	"author": "polycorn",
+	"description": "Collections of middleware for Node.js connect/express",
+	"keywords": [
+		"polymiddleware",
+		"middleware",
+		"connect",
+		"express",
+		"ip",
+		"geoip",
+		"language"
+	],
+	"contributors": [],
+	"main": "./index.js",
+	"repository":{
+		"type":"git",
+		"url":"https://github.com/polycorn/polymiddleware.git"
+	},
+	"dependencies": {
+		"geoip-native":"*"
+	},
+	"engines": {
+	  "node": ">=0.8"
+	}, 
+	"noAnalyze": true,
+	"licenses:"[
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/mit-license.php"
+		}
+	],
+	"devDependencies": {},
+	"optionalDependencies": {}
 }
