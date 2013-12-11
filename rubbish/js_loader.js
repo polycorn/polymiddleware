@@ -14,7 +14,7 @@ var fs = require("fs"),
 	@api public
 */
 
-module.exports = function (directory, options) {
+module.exports = function (dir, options) {
 	var ret = [],
 		pre_filter = function () { return true; },
 		post_filter = function () { return true; };
@@ -25,12 +25,18 @@ module.exports = function (directory, options) {
 	}
 
 	// read directory synchronously
-	fs.readdirSync(directory).forEach(function (fn) {
+	fs.readdirSync(dir).forEach(function (fn) {
 
 		// is it a js file ? does it satisfy pre_filter function ?
-		if (/\.js$/i.test(fn) && pre_filter(fn)) {
+		if (
+			(/\.js$/i.test(fn)||(fs.statSync(join(dir,fn)).isDirectory())) &&
+			pre_filter(fn)) {
 			// require the module
-			var mod = require(join(dir, fn));
+			try{
+				var mod = require(join(dir, fn));
+			}catch(e){
+				
+			}
 			// do a post filter before add to the array
 			if (post_filter(mod)) {
 				// module can be accessed in 2 ways:
@@ -39,8 +45,8 @@ module.exports = function (directory, options) {
 				//     ret[2]
 				//
 				// number of modules: ret.length
-				ret[fn.replace(/\.js$/i, "")] = mod;
 				ret.push(mod);
+				ret[fn.replace(/\.js$/i, "")] = mod;
 			}
 		}
 
